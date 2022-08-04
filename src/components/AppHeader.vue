@@ -7,7 +7,19 @@
     </div>
 
     <div class="right menu">
-      <a href="#" class="ui item" @click="login">
+      <div v-if="isLoggedIn" class="horizontal">
+        <a href="#" class="ui item">
+          Galleries
+        </a>
+        <a href="#" class="ui item">
+          Upload
+        </a>
+        <a href="#" class="ui item" @click="logout">
+          Logout
+        </a>
+      </div>
+
+      <a v-else href="#" class="ui item" @click="login">
         Login
       </a>
     </div>
@@ -15,19 +27,27 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'AppHeader',
+  computed: {
+    ...mapGetters(['isLoggedIn'])
+  },
   methods: {
-    ...mapActions(['login'])
-    }
+    ...mapActions(['login', 'logout'])
+  }
 };
 </script>
 
 <style>
-.hover:hover, .right:hover {
+.hover:hover, .horizontal:hover .ui {
   background-color: #eee;
   transition-duration: 500ms;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
 }
 </style>
