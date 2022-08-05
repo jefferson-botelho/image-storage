@@ -4,14 +4,11 @@
   </div>
 </template>
 
-<script>
-import { mapActions } from 'vuex';
+<script setup>
+import { onMounted } from 'vue';
+import store from '../store'
 
-export default {
-  name: 'AuthHandler',
-  methods: mapActions(['finalizeLogin']),
-  created() {
-    this.finalizeLogin(window.location.hash)
-  }
-}
+onMounted(() => {
+  store.dispatch('finalizeLogin', window.location.hash)
+})
 </script>

@@ -1,6 +1,6 @@
 import api from '../../api/imgur'
 import qs from 'qs'
-import { router } from '../../main'
+import router from '../../router'
 
 const state = {
   token: window.localStorage.getItem('imgur_token')

@@ -8,14 +8,12 @@
   </div>
 </template>
 
-<script>
-import { mapActions } from 'vuex';
-export default {
-  name: 'UploadForm',
-  methods: {
-    ...mapActions(['uploadImages'])
-  }
-};
+<script setup>
+import store from '../store'
+
+const uploadImages = (images) => {
+  store.dispatch('uploadImages', images);
+}
 </script>
 
 <style scoped>

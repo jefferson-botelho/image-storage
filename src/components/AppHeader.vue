@@ -26,17 +26,21 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from 'vuex';
+<script setup>
+import store from '../store'
+import { computed } from 'vue';
 
-export default {
-  name: 'AppHeader',
-  computed: {
-    ...mapGetters(['isLoggedIn'])
-  },
-  methods: {
-    ...mapActions(['login', 'logout'])
-  }
+// eslint-disable-next-line no-unused-vars
+const isLoggedIn = computed(() => store.getters['isLoggedIn']);
+
+// eslint-disable-next-line no-unused-vars
+const login = () => {
+  store.dispatch('login')
+};
+
+// eslint-disable-next-line no-unused-vars
+const logout = () => {
+  store.dispatch('logout')
 };
 </script>
 

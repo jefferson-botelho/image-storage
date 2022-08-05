@@ -1,5 +1,5 @@
 import api from '../../api/imgur'
-import { router } from '../../main'
+import router from '../../router'
 
 const state = {
   images: []
