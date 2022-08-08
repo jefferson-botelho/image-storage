@@ -61,6 +61,5 @@ const logout = () => {
 
 #menu-items {
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
 }
 </style>

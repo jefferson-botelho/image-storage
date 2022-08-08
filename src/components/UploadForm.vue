@@ -34,7 +34,6 @@ const uploadImages = (images) => {
   align-items: center;
   position: relative;
   transition: 500ms;
-  font-family: 'Montserrat', sans-serif;
 }
 
 .dropper:hover {

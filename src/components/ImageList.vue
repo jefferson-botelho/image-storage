@@ -45,6 +45,5 @@ const isLoggedIn = computed(() => store.getters['isLoggedIn'])
 .login {
   text-align: center;
   justify-content: center;
-  font-family: 'Montserrat', sans-serif;;
 }
 </style>
