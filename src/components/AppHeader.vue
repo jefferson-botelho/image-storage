@@ -1,29 +1,39 @@
 <template>
-  <div class="ui secondary pointing menu">
-    <div id="menu-items">
-      <router-link to="/" class="active item">
-        Image Storage
-      </router-link>
-    </div>
-
-    <div class="right menu">
-      <div v-if="isLoggedIn" class="horizontal">
-        <router-link to="/" id="menu-items" class="ui item">
-          Galleries
-        </router-link>
-        <router-link  to="/upload" id="menu-items" class="ui item">
-          Upload
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      :ellipsis="false"
+      @select="handleSelect"
+    >
+      <el-menu-item id="menu-items" index="0">
+        <router-link  to="/" id="menu-items">
+          Image Storage
         </router-link >
-        <a href="#" id="menu-items" class="ui item" @click="logout">
+      </el-menu-item>
+
+      <div id="flex-grow" />
+        <el-menu-item v-if="isLoggedIn" index="1">
+         <router-link to="/" id="menu-items">
+          Galleries
+          </router-link> 
+        </el-menu-item>
+        <el-menu-item v-if="isLoggedIn" index="2">
+          <router-link  to="/upload" id="menu-items">
+          Upload
+          </router-link >
+        </el-menu-item>
+        <el-menu-item v-if="isLoggedIn" index="3">
+          <a href="#" id="menu-items" @click="logout">
           Logout
-        </a>
-      </div>
-    
-      <a v-else href="#" id="menu-items" class="ui item" @click="login">
-        Login
-      </a>
-    </div>
-  </div>
+          </a>
+        </el-menu-item>
+        <el-menu-item v-else index="1">
+          <a href="#" id="menu-items" @click="login">
+          Login
+          </a>
+        </el-menu-item>   
+    </el-menu>
 </template>
 
 <script setup>
@@ -44,13 +54,13 @@ const logout = () => {
 };
 </script>
 
-<style scoped>
-#menu-items:hover {
-  background-color: #eee;
+<style>
+#flex-grow {
+  flex-grow: 1;
 }
 
-.horizontal {
-  display: flex;
-  flex-direction: row;
+#menu-items {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
 }
 </style>

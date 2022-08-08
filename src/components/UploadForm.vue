@@ -1,10 +1,12 @@
 <template>
-  <div class="dropper">
-    <input type="file" 
-    @change="uploadImages($event.target.files)"
-    multiple
-    accept="image/*"/>
-    <span>Drag files here!</span>
+  <div class="upload">
+    <div class="dropper">
+      <input type="file" 
+      @change="uploadImages($event.target.files)"
+      multiple
+      accept="image/*"/>
+      <span>Drag files here!</span>
+    </div>
   </div>
 </template>
 
@@ -17,20 +19,29 @@ const uploadImages = (images) => {
 </script>
 
 <style scoped>
+.upload {
+  justify-content: center;
+  display: flex;
+  margin-top: 10vh;
+}
 .dropper {
+  width: 50%;
   height: 30vh;
-  border:2px dashed black;
+  border: dashed 2px var(--el-border-color);
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   transition: 500ms;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .dropper:hover {
   background-color: #eee;
   transition: 500ms;
+  font-weight: bold;
+  box-shadow: var(--el-box-shadow-lighter);
 }
 
 input {

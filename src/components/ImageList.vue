@@ -1,10 +1,13 @@
 <template>
-  <div>
     <div v-if="isLoggedIn" class="image-container">
-      <img v-for="image in allImages" :src="image.link" :key="image.link"/>
+      <div v-for="image in allImages" :key="image.link" class="block">
+        <el-image 
+        class="images"
+        :src="image.link" 
+        fit="contain" />
+      </div>
     </div>
-    <h2 v-else>Log in to get started!</h2>
-  </div>
+    <h1 class="login" v-else>Log in to get started!</h1>
 </template>
 
 <script setup>
@@ -25,11 +28,23 @@ const isLoggedIn = computed(() => store.getters['isLoggedIn'])
 .image-container {
   column-count: 3;
   column-gap: 0;
+  justify-content: center;
 }
 
-img {
-  max-width: 100%;
+.image-container .block {
+  padding: 30px 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.images {
+  max-width: 70%;
   padding: 5px;
-  display: block;
+}
+
+.login {
+  text-align: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;;
 }
 </style>

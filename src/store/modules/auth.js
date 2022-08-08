@@ -26,6 +26,7 @@ const actions = {
   },
   logout({ commit }) {
     commit('setToken', null);
+    router.push('/');
   }
 };
 
